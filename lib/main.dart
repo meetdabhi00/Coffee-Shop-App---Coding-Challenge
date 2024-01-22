@@ -1,4 +1,5 @@
 import 'package:coffee_shop_app_coding_challenge/provider/auth_provider.dart';
+import 'package:coffee_shop_app_coding_challenge/provider/common_provider.dart';
 import 'package:coffee_shop_app_coding_challenge/provider/home_provider.dart';
 import 'package:coffee_shop_app_coding_challenge/router/route_path.dart';
 import 'package:coffee_shop_app_coding_challenge/router/router.dart';
@@ -15,12 +16,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => AuthProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => HomeProvider(),
-        ),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(create: (_) => CommonProvider()),
       ],
       child: const MyApp(),
     ),
