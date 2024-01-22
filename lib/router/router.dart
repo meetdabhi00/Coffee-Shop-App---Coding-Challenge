@@ -1,6 +1,6 @@
+import 'package:coffee_shop_app_coding_challenge/router/route_path.dart';
+import 'package:coffee_shop_app_coding_challenge/view/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:formet/router/route_path.dart';
-import 'package:formet/view/dashboard/dashboard.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {

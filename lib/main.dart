@@ -5,6 +5,7 @@ import 'package:coffee_shop_app_coding_challenge/router/router.dart';
 import 'package:coffee_shop_app_coding_challenge/utils/constant/app_colors.dart';
 import 'package:coffee_shop_app_coding_challenge/utils/shared_pref.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -47,12 +48,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     AppColor.loadLight();
-    return const MaterialApp(
-      title: 'Coffee Shop App',
-      debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
-      onGenerateRoute: generateRoute,
-      initialRoute: RoutePath.dashBoard,
+    return ScreenUtilInit(
+      minTextAdapt: true,
+      splitScreenMode: true,
+      designSize: const Size(600, 1020),
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          theme: ThemeData(fontFamily: 'Sora'),
+          title: 'Coffee Shop App',
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.system,
+          onGenerateRoute: generateRoute,
+          initialRoute: RoutePath.dashBoard,
+        );
+      },
     );
   }
 }
