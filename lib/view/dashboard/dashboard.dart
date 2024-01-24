@@ -24,22 +24,19 @@ class _DashBoardState extends State<DashBoard> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-      builder: (context, homeProvider, child) {
-        return Consumer<CommonProvider>(
-            builder: (context, commonProvider, child) {
-          return Scaffold(
-            backgroundColor: AppColor.background,
-            body: _screens[commonProvider.selectedIndex],
-            bottomNavigationBar: CustomBottomNavigationBar(
-              items: bottomNavItems,
-              selectedIndex: commonProvider.selectedIndex,
-              onItemSelected: (index) {
-                commonProvider.bottomNavigationIndexChange(index: index);
-              },
-            ),
-          );
-        });
+    return Consumer2<HomeProvider, CommonProvider>(
+      builder: (context, homeProvider, commonProvider, child) {
+        return Scaffold(
+          backgroundColor: AppColor.backGroundColor,
+          body: _screens[commonProvider.selectedIndex],
+          bottomNavigationBar: CustomBottomNavigationBar(
+            items: bottomNavItems,
+            selectedIndex: commonProvider.selectedIndex,
+            onItemSelected: (index) {
+              commonProvider.bottomNavigationIndexChange(index: index);
+            },
+          ),
+        );
       },
     );
   }

@@ -7,12 +7,15 @@ class AppColor {
   static const Color _grey = Colors.grey;
   static const Color _red = Colors.red;
   static const Color _mainColors = Color(0xFFC67C4E);
+  static const Color _categoryTextColors = Color(0xFF2F4B4E);
+  static const Color _backGroundColor = Color(0xFFF9F9F9);
   static const List<Color> _gradientMainColors = [
     Color(0xffc67c4e),
     Color(0xffecaa81)
   ];
+  static const Color _titleColor = Color(0xFF2F2D2C);
+  static const Color _subtitleColor = Color(0xFF9B9B9B);
 
-  static late Color background;
   static late Color black;
   static late Color white;
   static late Color grey;
@@ -22,10 +25,13 @@ class AppColor {
   static late Color icon;
   static late Color buttonTextColor;
   static late Color mainColors;
+  static late Color categoryTextColors;
+  static late Color backGroundColor;
   static late List<Color> gradientMainColors;
+  static late Color titleColor;
+  static late Color subtitleColor;
 
   static void loadLight() {
-    background = _white;
     black = _black;
     white = _white;
     textColor = _black;
@@ -36,5 +42,9 @@ class AppColor {
     icon = _black;
     mainColors = _mainColors;
     gradientMainColors = _gradientMainColors;
+    categoryTextColors = _categoryTextColors;
+    backGroundColor = _backGroundColor;
+    titleColor = _titleColor;
+    subtitleColor = _subtitleColor;
   }
 }

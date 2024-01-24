@@ -9,6 +9,7 @@ class HomeProvider extends ChangeNotifier {
   Map<String, List<Product>> productsByCategory = {};
 
   void filterProductByCategory() {
+    productsByCategory = {};
     for (Product product in allProducts) {
       if (!productsByCategory.containsKey(product.category)) {
         productsByCategory[product.category] = [];
