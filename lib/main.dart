@@ -6,6 +6,7 @@ import 'package:coffee_shop_app_coding_challenge/router/router.dart';
 import 'package:coffee_shop_app_coding_challenge/utils/constant/app_colors.dart';
 import 'package:coffee_shop_app_coding_challenge/utils/shared_pref.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
@@ -33,19 +34,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // HomeProvider? _homeProvider;
-  String? theme;
-
   @override
   void initState() {
+    AppColor.loadLight();
     super.initState();
-    // _homeProvider = Provider.of<HomeProvider>(context, listen: false);
-    // _homeProvider?.getTheme();
   }
 
   @override
   Widget build(BuildContext context) {
-    AppColor.loadLight();
     return ScreenUtilInit(
       minTextAdapt: true,
       splitScreenMode: true,

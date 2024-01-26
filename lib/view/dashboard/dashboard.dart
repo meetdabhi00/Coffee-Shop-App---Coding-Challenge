@@ -5,7 +5,7 @@ import 'package:coffee_shop_app_coding_challenge/utils/constant/app_colors.dart'
 import 'package:coffee_shop_app_coding_challenge/view/cart/cart_screen.dart';
 import 'package:coffee_shop_app_coding_challenge/view/dashboard/bottom_navigation_bar.dart';
 import 'package:coffee_shop_app_coding_challenge/view/favorite/favorite_product_list_screen.dart';
-import 'package:coffee_shop_app_coding_challenge/view/home/home_screen.dart';
+import 'package:coffee_shop_app_coding_challenge/view/home/home_screen/home_screen.dart';
 import 'package:coffee_shop_app_coding_challenge/view/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

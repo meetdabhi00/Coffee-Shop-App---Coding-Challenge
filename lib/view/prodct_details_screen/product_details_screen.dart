@@ -62,15 +62,18 @@ class _ProductDetailsScreenState extends ProductDetailsWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 300.h,
-                    width: ScreenUtil().screenWidth,
-                    margin: EdgeInsets.symmetric(vertical: 20.h),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25.r),
-                      image: DecorationImage(
-                        image: NetworkImage(productData.images),
-                        fit: BoxFit.cover,
+                  Hero(
+                    tag: productData.id,
+                    child: Container(
+                      height: 300.h,
+                      width: ScreenUtil().screenWidth,
+                      margin: EdgeInsets.symmetric(vertical: 20.h),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.r),
+                        image: DecorationImage(
+                          image: NetworkImage(productData.images),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

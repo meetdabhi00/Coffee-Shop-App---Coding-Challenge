@@ -8,6 +8,7 @@ class HomeProvider extends ChangeNotifier {
 
   List<Product> allProducts = generateDummyProducts();
   List<Product> favoriteProductList = [];
+  List<Product> searchProductList = [];
   Map<String, List<Product>> productsByCategory = {};
 
   void filterProductByCategory() {
@@ -50,6 +51,16 @@ class HomeProvider extends ChangeNotifier {
         product.isFavorite = !isFavorite;
       }
     }
+    notifyListeners();
+  }
+
+  void searchProduct({required String text}) {
+    searchProductList = [];
+    List<Product> tempList = allProducts
+        .where((product) =>
+            product.title.toLowerCase().contains(text.toLowerCase()))
+        .toList();
+    searchProductList.addAll(tempList);
     notifyListeners();
   }
 }

@@ -60,35 +60,38 @@ class BottomNavItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(8.r),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SvgPicture.asset(
-              height: 25.h,
-              width: 25.w,
-              item.imagePath,
-              colorFilter: ColorFilter.mode(
-                isSelected ? AppColor.mainColors : Colors.grey,
-                BlendMode.srcIn,
-              ),
-            ),
-            if (isSelected) const SizedBox(height: 5),
-            if (isSelected)
-              Container(
-                height: 5.h,
-                width: 20.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(18),
-                  gradient: LinearGradient(
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                    colors: AppColor.gradientMainColors,
-                  ),
+      child: Center(
+        child: Container(
+          width: 100.w,
+          padding: EdgeInsets.all(8.r),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SvgPicture.asset(
+                height: 25.h,
+                width: 25.w,
+                item.imagePath,
+                colorFilter: ColorFilter.mode(
+                  isSelected ? AppColor.mainColors : Colors.grey,
+                  BlendMode.srcIn,
                 ),
               ),
-          ],
+              if (isSelected) const SizedBox(height: 5),
+              if (isSelected)
+                Container(
+                  height: 5.h,
+                  width: 20.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerRight,
+                      end: Alignment.centerLeft,
+                      colors: AppColor.gradientMainColors,
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
