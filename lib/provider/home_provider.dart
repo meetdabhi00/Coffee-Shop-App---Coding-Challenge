@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class HomeProvider extends ChangeNotifier {
   String selectedCategory = '';
+  String selectedProductSize = '';
 
   List<Product> allProducts = generateDummyProducts();
+  List<Product> favoriteProductList = [];
   Map<String, List<Product>> productsByCategory = {};
 
   void filterProductByCategory() {
@@ -21,6 +23,33 @@ class HomeProvider extends ChangeNotifier {
   void selecCategory({required String categoryName}) {
     selectedCategory = categoryName;
     filterProductByCategory();
+    notifyListeners();
+  }
+
+  void selecProductSize({required String produtSize}) {
+    selectedProductSize = produtSize;
+    notifyListeners();
+  }
+
+  void addFavoriteProdctList({required String id}) {
+    List<Product> tempList = [];
+    tempList.addAll(allProducts);
+
+    for (var product in tempList) {
+      if (product.id == id) {
+        bool isFavorite = product.isFavorite;
+        if (!isFavorite) {
+          favoriteProductList.add(product);
+        } else {
+          bool avlibleProduct =
+              favoriteProductList.any((element) => element.id == id);
+          if (avlibleProduct) {
+            favoriteProductList.removeWhere((element) => element.id == id);
+          }
+        }
+        product.isFavorite = !isFavorite;
+      }
+    }
     notifyListeners();
   }
 }

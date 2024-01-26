@@ -2,8 +2,11 @@ import 'package:coffee_shop_app_coding_challenge/data/model/bottom_nav_item_mode
 import 'package:coffee_shop_app_coding_challenge/provider/common_provider.dart';
 import 'package:coffee_shop_app_coding_challenge/provider/home_provider.dart';
 import 'package:coffee_shop_app_coding_challenge/utils/constant/app_colors.dart';
+import 'package:coffee_shop_app_coding_challenge/view/cart/cart_screen.dart';
 import 'package:coffee_shop_app_coding_challenge/view/dashboard/bottom_navigation_bar.dart';
+import 'package:coffee_shop_app_coding_challenge/view/favorite/favorite_product_list_screen.dart';
 import 'package:coffee_shop_app_coding_challenge/view/home/home_screen.dart';
+import 'package:coffee_shop_app_coding_challenge/view/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,9 +20,9 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   final List<Widget> _screens = [
     const HomeScreen(),
-    Container(),
-    Container(),
-    Container(),
+    const FavoriteProductList(),
+    const CartScreen(),
+    const NotificationScreen(),
   ];
 
   @override

@@ -9,7 +9,7 @@ List<String> categories = [
   'Macchiato'
 ];
 
-List<String> sizes = ['S', 'M', 'L'];
+List<String> produtSizes = ['S', 'M', 'L'];
 
 List<String> images = [
   'https://img.freepik.com/premium-photo/cup-coffee-coffee-time_41050-2990.jpg?w=740',
@@ -28,27 +28,31 @@ List<Product> generateDummyProducts() {
   for (int i = 0; i < 50; i++) {
     String productId = 'product_$i';
     String category = categories[random.nextInt(categories.length)];
-    String size = sizes[random.nextInt(sizes.length)];
-    double price =
-        (random.nextDouble() * 10) + 3; // Random price between $3 and $13
+    String size = produtSizes[random.nextInt(produtSizes.length)];
+    double price = (random.nextDouble() * 10) + 3;
     String title = 'Coffee $i';
     String subtitle = 'Subtitle $i';
-    String description = 'This is a description for Coffee $i.';
+    String description =
+        'A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the for This is a description for Coffee $i A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the for This is a description for Coffee $i';
     String image = images[random.nextInt(images.length)];
-    double rating =
-        (random.nextDouble().toDouble() * 5); // Random rating between 0 and 5
+    double rating = (random.nextDouble().toDouble() * 5);
+    int ratingPerson = random.nextInt(500);
 
-    dummyProducts.add(Product(
-      id: productId,
-      category: category,
-      size: size,
-      price: price,
-      title: title,
-      subtitle: subtitle,
-      description: description,
-      images: image,
-      rating: rating,
-    ));
+    dummyProducts.add(
+      Product(
+        id: productId,
+        category: category,
+        size: size,
+        price: price,
+        title: title,
+        subtitle: subtitle,
+        description: description,
+        images: image,
+        rating: rating,
+        ratingPerson: ratingPerson,
+        isFavorite: false,
+      ),
+    );
   }
 
   return dummyProducts;

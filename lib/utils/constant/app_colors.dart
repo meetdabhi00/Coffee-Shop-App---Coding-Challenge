@@ -15,6 +15,8 @@ class AppColor {
   ];
   static const Color _titleColor = Color(0xFF2F2D2C);
   static const Color _subtitleColor = Color(0xFF9B9B9B);
+  static const Color _dividerColor = Color(0xFFEAEAEA);
+  static const Color _lightMainColor = Color(0xFFFFF5EE);
 
   static late Color black;
   static late Color white;
@@ -30,6 +32,8 @@ class AppColor {
   static late List<Color> gradientMainColors;
   static late Color titleColor;
   static late Color subtitleColor;
+  static late Color dividerColor;
+  static late Color lightMainColor;
 
   static void loadLight() {
     black = _black;
@@ -46,5 +50,7 @@ class AppColor {
     backGroundColor = _backGroundColor;
     titleColor = _titleColor;
     subtitleColor = _subtitleColor;
+    dividerColor = _dividerColor;
+    lightMainColor = _lightMainColor;
   }
 }

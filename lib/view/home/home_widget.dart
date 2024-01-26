@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:coffee_shop_app_coding_challenge/data/dummy_data/dummy_data.dart';
 import 'package:coffee_shop_app_coding_challenge/data/model/product_model.dart';
 import 'package:coffee_shop_app_coding_challenge/provider/home_provider.dart';
+import 'package:coffee_shop_app_coding_challenge/router/route_path.dart';
 import 'package:coffee_shop_app_coding_challenge/utils/constant/app_colors.dart';
 import 'package:coffee_shop_app_coding_challenge/view/home/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -206,40 +207,47 @@ abstract class HomeWidget extends State<HomeScreen> {
           crossAxisCount: 2,
           crossAxisSpacing: 35.w,
           mainAxisSpacing: 8.h,
-          childAspectRatio: 0.70 / 1,
+          childAspectRatio: 0.65 / 1,
         ),
         itemBuilder: (context, index) {
           Product product = productList[index];
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(20.r),
-            child: Container(
-              padding: EdgeInsets.all(10.r),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20.r),
-                    child: Stack(
-                      children: [
-                        SizedBox(
-                          height: 150.h,
-                          width: ScreenUtil().screenWidth,
-                          child: Image.network(
-                            product.images,
-                            fit: BoxFit.cover,
+          return GestureDetector(
+            onTap: () => Navigator.pushNamed(
+              context,
+              RoutePath.productDetailsScreen,
+              arguments: product,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
+              child: Container(
+                padding: EdgeInsets.all(10.r),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20.r),
+                      child: Stack(
+                        children: [
+                          SizedBox(
+                            height: 150.h,
+                            width: ScreenUtil().screenWidth,
+                            child: Image.network(
+                              product.images,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        ratingBox(product),
-                      ],
+                          ratingBox(product),
+                        ],
+                      ),
                     ),
-                  ),
-                  productDetails(product),
-                ],
+                    productDetails(product),
+                  ],
+                ),
               ),
             ),
           );
@@ -255,34 +263,42 @@ abstract class HomeWidget extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(),
-            Text(
-              product.title,
-              style: TextStyle(
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w600,
-                color: AppColor.titleColor,
+            Expanded(
+              child: Text(
+                product.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.titleColor,
+                ),
               ),
             ),
             SizedBox(height: 3.h),
-            Text(
-              product.subtitle,
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w400,
-                color: AppColor.subtitleColor,
+            Expanded(
+              child: Text(
+                product.subtitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.subtitleColor,
+                ),
               ),
             ),
-            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  '\$${product.price.toStringAsFixed(2)}',
-                  style: TextStyle(
-                    fontSize: 25.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.categoryTextColors,
+                Expanded(
+                  child: Text(
+                    '\$${product.price.toStringAsFixed(2)}',
+                    style: TextStyle(
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.categoryTextColors,
+                    ),
                   ),
                 ),
                 Container(

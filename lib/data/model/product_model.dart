@@ -8,6 +8,8 @@ class Product {
   final String description;
   final String images;
   final double rating;
+  final int ratingPerson;
+  bool isFavorite;
 
   Product({
     required this.id,
@@ -19,5 +21,7 @@ class Product {
     required this.description,
     required this.images,
     required this.rating,
+    required this.ratingPerson,
+    required this.isFavorite,
   });
 }
